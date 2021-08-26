@@ -1,0 +1,567 @@
+<html>
+
+<head>
+    <!-- CSS only -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+    <!-- JavaScript Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj"
+        crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <div class="container">
+        <div class="row">
+            <nav class="navbar navbar-light" style="background-color:cornsilk">
+                <div class="col col-md-1">
+                    <div class="navbar navbar-light bg-light">
+                        <div class="container-fluid">
+                            <a class="navbar-brand" href="#">
+                                <img src="https://www.udemy.com/staticx/udemy/images/v7/logo-udemy.svg" alt=""
+                                    width="70" height="24" class="d-inline-block align-text-top">
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col col-md-1">
+                    <ul class="nav nav-tabs">
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button"
+                                aria-expanded="false" style="color:black">Kategoriler</a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="#">Yazılım Geliştirme</a></li>
+                                <li><a class="dropdown-item" href="#">İşletme Ve Muhasebe</a></li>
+                                <li><a class="dropdown-item" href="#">Bt ve Yazılım</a></li>
+                                <li><a class="dropdown-item" href="#">Ofiste Verimlilik</a></li>
+                                <li><a class="dropdown-item" href="#">Kişisel Gelişim</a></li>
+
+                            </ul>
+                        </li>
+
+                    </ul>
+                </div>
+
+                <form class="col col-md-3 d-flex">
+                    <input class="form-control me-2" type="search" ; placeholder="Dilediğiniz şeyi arayın.."
+                        aria-label="Search">
+
+                </form>
+                <div class="col col-md-3">
+                    <a class="nav-link active" aria-current="page" href="#" style="color:black">Udemy'de
+                        eğitim verin</a>
+                </div>
+                <nav class="navbar navbar-light bg-light"></nav>
+                <a class="navbar-brand" href="#">
+                    <img src="data:image/jpeg;base64,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"
+                        alt="" width="40" height="44">
+                </a>
+                <div class="col col-md-1">
+                    <button type="button" class="btn btn-light">Oturum Aç</button>
+                </div>
+                <div class="col col-md-1">
+                    <button type="button" class="btn btn-dark">Kaydol</button>
+                </div>
+                <nav class="navbar navbar-light bg-light"></nav>
+                <a class="navbar-brand" href="#">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQTB3TiMpmCAbLCRe8wy4j1E8wl4kxm_FqfKw&usqp=CAU"
+                        alt="" width="40" height="44">
+                </a>
+        </div>
+        </nav>
+        </nav>
+    </div>
+    </div>
+
+    <div class="card mb-" style="padding: 30; padding-left:80;">
+        <div class="row g-0">
+            <div class="col-md-2">
+                <img
+                    src="https://img-c.udemycdn.com/notices/web_banner/image_udlite/d93015d2-3ec1-48cd-97c6-60eace42b20c.jpg">
+            </div>
+            <div class="card border-primary mb-3" style="max-width: 18rem; max-height: 18rem;">
+                <div class="card-header">İndirim bugün sona eriyor</div>
+                <div class="card-body text-primary">
+                    <p class="card-text">Hemen Öğrenim Aşkı İndirimimizden yararlanın. Kurslar şimdi yalnızca ₺27,99'den
+                        başlayan fiyatlarla!</p>
+                </div>
+                <form class="col col-md-12 d-flex">
+                    <input class="form-control me-2" type="search" placeholder="Dilediğiniz şeyi arayın.."
+                        aria-label="Search">
+
+                </form>
+            </div>
+
+        </div>
+    </div>
+
+    <br>
+    <div class="container">
+        <b>
+            <font size="5">Kapsamlı kurs seçkisi</font>
+        </b> <br>
+        <font size="3">Her ay yayınlanan yeni kurslarla 155.000+ online video kurs arasından seçiminizi yapın</font>
+        <br>
+        <br>
+        <ul class="nav">
+            <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="#">Python</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Excel</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Web Geliştirme</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">JavaScript</a>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link" href="#">Veri Bilimi</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">AWS Sertifikasyon</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Çizim</a>
+            </li>
+
+        </ul>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col col-md-12">
+                Python ile kariyer olanaklarınızı artırın
+                İster makine öğrenimi, ister finans alanında çalışıyor olun,<br> ister web geliştirme veya veri bilimi
+                alanında kariyer yapıyor olun,
+                Python öğrenebileceğiniz en önemli <br>becerilerden biridir. Python'un basit sözdizimi özellikle
+                masaüstü, web ve iş uygulamaları için uygundur.
+                <br>
+                <button type="button" class="btn btn-lg btn-primary" disabled>Python kurslarını keşfedin</button>
+                <br>
+                <br>
+            </div>
+        </div>
+        <div class="card-group">
+            <div class="card">
+                <img src="https://img-c.udemycdn.com/course/240x135/1235124_7c5f_6.jpg" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">(40+ Saat)python|Sıfırdan ileri Seviye..</h5>
+                    <p class="card-text">Murat Coşkun</p>
+                    <p class="card-text"><small class="text-muted">27,99</small></p>
+                    <nav class="nav nav-pills flex-column flex-sm-row">
+                        <a class="flex-sm-fill text-sm-center nav-link active" aria-current="page" width="20"
+                            height="24">En çok satan</a>
+                    </nav>
+                </div>
+            </div>
+            <div class="card">
+                <img src="https://img-c.udemycdn.com/course/240x135/2496622_433f.jpg" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">(100+Saat)Aranan Programcı Olma..</h5>
+                    <p class="card-text">Engin Demiroğ</p>
+                    <p class="card-text"><small class="text-muted">27,99</small></p>
+                    <nav class="nav nav-pills flex-column flex-sm-row">
+                        <a class="flex-sm-fill text-sm-center nav-link active" aria-current="page" width="20"
+                            height="24">En çok satan</a>
+                    </nav>
+                </div>
+            </div>
+            <div class="card">
+                <img src="https://img-c.udemycdn.com/course/240x135/2310884_04cd_6.jpg" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">(50 saat)Python A-Z:Veri Bilimi..)</h5>
+                    <p class="card-text">Mustafa Vahit Keskin</p>
+                    <p class="card-text"><small class="text-muted">27,99</small></p>
+                    <nav class="nav nav-pills flex-column flex-sm-row">
+                        <a class="flex-sm-fill text-sm-center nav-link active" aria-current="page" width="20"
+                            height="24">En çok satan</a>
+                    </nav>
+                </div>
+            </div>
+
+        </div>
+        <br>
+        <br>
+        <div class="row">
+            <div class="container overflow-hidden">
+                <div class="row gx-5">
+                    <div class="col">
+                        <div class="p-3 border bg-light">155.000 adedi aşkın video kursla yüksek talep gören
+                            yetkinlikleri öğrenin</div>
+                    </div>
+                    <div class="col">
+                        <div class="p-3 border bg-light">Gerçek uzmanlar tarafından verilen kursları seçin</div>
+                    </div>
+                    <div class="col">
+                        <div class="p-3 border bg-light">Mobil ve masaüstünde ömür boyu erişim sayesinde kendi hızınızda
+                            öğrenin</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <br>
+        <br>
+        <div class="row">
+            <b>
+                <font size="5">Öğrenciler şu anda bunları görüntülüyor:</font>
+            </b>
+            <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+                <div class="card-group">
+                    <div class="card">
+                        <img src="https://img-c.udemycdn.com/course/240x135/1235124_7c5f_6.jpg" class="card-img-top"
+                            alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title">(40+ Saat)python|Sıfırdan ileri Seviye..</h5>
+                            <p class="card-text">Murat Coşkun</p>
+                            <p class="card-text"><small class="text-muted">27,99</small></p>
+                            <nav class="nav nav-pills flex-column flex-sm-row">
+                                <a class="flex-sm-fill text-sm-center nav-link active" aria-current="page" width="20"
+                                    height="24">En çok satan</a>
+                            </nav>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <img src="https://img-c.udemycdn.com/course/240x135/2496622_433f.jpg" class="card-img-top"
+                            alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title">(100+Saat)Aranan Programcı Olma..</h5>
+                            <p class="card-text">Engin Demiroğ</p>
+                            <p class="card-text"><small class="text-muted">27,99</small></p>
+                            <nav class="nav nav-pills flex-column flex-sm-row">
+                                <a class="flex-sm-fill text-sm-center nav-link active" aria-current="page" width="20"
+                                    height="24">En çok satan</a>
+                            </nav>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <img src="https://img-c.udemycdn.com/course/240x135/2310884_04cd_6.jpg" class="card-img-top"
+                            alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title">(50 saat)Python A-Z:Veri Bilimi..)</h5>
+                            <p class="card-text">Mustafa Vahit Keskin</p>
+                            <p class="card-text"><small class="text-muted">27,99</small></p>
+                            <nav class="nav nav-pills flex-column flex-sm-row">
+                                <a class="flex-sm-fill text-sm-center nav-link active" aria-current="page" width="20"
+                                    height="24">En çok satan</a>
+                            </nav>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+            <b>
+                <font size="5">En popüler kategoriler</font>
+            </b> <br>
+            <div class="row">
+                <div class="card-group">
+                    <div class="card">
+                        <img src="https://s.udemycdn.com/home/top-categories/lohp-category-design-v2.jpg"
+                            class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title">Tasarım</h5>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <img src="https://s.udemycdn.com/home/top-categories/lohp-category-development-v2.jpg"
+                            class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title">Yazılım Geliştirme</h5>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <img src="https://s.udemycdn.com/home/top-categories/lohp-category-marketing-v2.jpg"
+                            class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title">Pazarlama</h5>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <img src="https://s.udemycdn.com/home/top-categories/lohp-category-it-and-software-v2.jpg"
+                            class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title">Bt Ve Yazılım</h5>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="card-group">
+                        <div class="card">
+                            <img src="https://s.udemycdn.com/home/top-categories/lohp-category-personal-development-v2.jpg"
+                                class="card-img-top" alt="...">
+                            <div class="card-body">
+                                <h5 class="card-title">Kişisel Gelişim</h5>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <img src="https://s.udemycdn.com/home/top-categories/lohp-category-business-v2.jpg"
+                                class="card-img-top" alt="...">
+                            <div class="card-body">
+                                <h5 class="card-title">İşletme</h5>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <img src="https://s.udemycdn.com/home/top-categories/lohp-category-photography-v2.jpg"
+                                class="card-img-top" alt="...">
+                            <div class="card-body">
+                                <h5 class="card-title">Fotoğrafçılık</h5>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <img src="https://s.udemycdn.com/home/top-categories/lohp-category-music-v2.jpg"
+                                class="card-img-top" alt="...">
+                            <div class="card-body">
+                                <h5 class="card-title">Müzik</h5>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <br>
+        <br>
+
+        <b>
+            <font size="5"> Featured topics by category</font>
+        </b> <br>
+        <ul class="nav">
+            <br>
+            <li class="nav-item">
+                <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true"><b>Yazılım Geliştirme</b></a>
+                <ul class="nav flex-column">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="#">Python</a>
+                        30.181.196 öğrenci
+
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Web Geliştirme</a>
+                        9.705.951 öğrenci
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Makine Öğrenimi</a>
+                        6.040.966 öğrenci
+                    </li>
+                </ul>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true"><b>İşletme</b></a>
+                <ul class="nav flex-column">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="#">Finansal Analiz</a>
+                        30.181.196 öğrenci
+
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">SQL</a>
+                        9.705.951 öğrenci
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">PMP</a>
+                        6.040.966 öğrenci
+                    </li>
+                </ul>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true"><b>Bt Ve Yazılım</b></a>
+                <ul class="nav flex-column">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="#">AWS Sertifikasyonu</a>
+                        30.181.196 öğrenci
+
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Etik Hackleme</a>
+                        9.705.951 öğrenci
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Siber Güvenlik</a>
+                        6.040.966 öğrenci
+                    </li>
+                </ul>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true"><b>Tasarım</b></a>
+                <ul class="nav flex-column">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="#">Python</a>
+                        30.181.196 öğrenci
+
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Web Geliştirme</a>
+                        9.705.951 öğrenci
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Makine Öğrenimi</a>
+                        6.040.966 öğrenci
+                    </li>
+                </ul>
+            </li>
+        </ul>
+
+        <br>
+        <button type="button" class="btn btn-light">Explore more topics</button>
+    </div>
+    <div class="container">
+        <div class="row" style="padding: 20; padding-left: 200;">
+            <div class="card mb-3" style="max-width: 540px;">
+                <div class="row g-0">
+                    <div class="col-md-12">
+                        <img src="https://s.udemycdn.com/home/non-student-cta/instructor-1x-v3.jpg"
+                            class="img-fluid rounded-start" alt="...">
+                    </div>
+                    <div class="col-md-12">
+                        <div class="card-body">
+                            <h5 class="card-title">Eğitmen Olun</h5>
+                            <p class="card-text"><small class="text-muted">Dünyanın dört bir yanından eğitmenler
+                                    Udemy'de
+                                    milyonlarca öğrenciye eğitim
+                                    veriyor.
+                                    Sevdiğiniz şeyleri öğretmeniz için gereken araçları ve yetkinlikleri
+                                    sağlıyoruz.</small>
+                            </p>
+                            <a href="#" class="btn btn-primary">Hemen eğitim vermeye başlayın</a>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <div class="row bg-light ">
+            <div class="row" style="padding: 20; padding-left: 200;">
+                Her ölçekteki şirketler tarafından güvenilir
+                <ul class="nav">
+                    <li class="nav-item">
+                        <img src="https://s.udemycdn.com/partner-logos/v4/apple-dark.svg" class="card-img-top"
+                            alt="...">
+                    </li>
+                    <li class="nav-item">
+                        <img src="https://s.udemycdn.com/partner-logos/v4/box-dark.svg" class="card-img-top" alt="...">
+                    </li>
+                    <li class="nav-item">
+                        <img src="https://s.udemycdn.com/partner-logos/v4/volkswagen-dark.svg" class="card-img-top"
+                            alt="...">
+                    </li>
+                    <li class="nav-item">
+                        <img src="https://s.udemycdn.com/partner-logos/v4/netflix-dark.svg" class="card-img-top"
+                            alt="...">
+                    </li>
+                    <li class="nav-item">
+                        <img src="https://s.udemycdn.com/partner-logos/v4/eventbrite-dark.svg" class="card-img-top"
+                            alt="...">
+                    </li>
+
+                </ul>
+            </div>
+        </div>
+
+        <div class="row" style="padding: 20; padding-left: 200;">
+            <div class="card mb-3" style="max-width: 540px;">
+                <div class="row g-0">
+                    <div class="col-md-12">
+                        <img src="https://s.udemycdn.com/home/non-student-cta/ub-1x-v3.jpg"
+                            class="img-fluid rounded-start" alt="...">
+                    </div>
+                    <div class="col-md-12">
+                        <div class="card-body">
+                            <img src="https://www.udemy.com/staticx/udemy/images/v7/logo-ub.svg"
+                                class="img-fluid rounded-start" alt="...">
+                            <p class="card-text">Ekibiniz için popüler 6.000+ Udemy kursuna sınırsız erişim elde edin.
+                                İşletme,
+                                teknoloji, tasarım ve daha birçok konuda eğitim alın ve yetkinliklerinizi geliştirin.
+
+                            </p>
+                            <a href="#" class="btn btn-primary">Udemy Business ürününü edinin</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row" style="padding: 20; padding-left: 200;">
+            <div class="card mb-3" style="max-width: 540px;">
+                <div class="row g-0">
+                    <div class="col-md-12">
+                        <img src="https://s.udemycdn.com/home/non-student-cta/transform-1x-v3.jpg"
+                            class="img-fluid rounded-start" alt="...">
+                    </div>
+                    <div class="col-md-12">
+                        <div class="card-body">
+                            <p>Eğitimle hayatınızı dönüştürün</p>
+                            <p class="card-text">Dünya genelindeki öğrenciler yeni kariyerlere başlıyor, alanlarında
+                                kendilerini
+                                geliştiriyor ve hayatlarını zenginleştiriyor.
+
+                            </p>
+                            <a href="#" class="btn btn-primary">Nasıl olduğunu öğrenin</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row bg-light ">
+        <footer class="pt-5">
+            <div class="row mx-4">
+                <div class="col-2">
+
+                    <ul class="nav flex-column">
+                        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Udemy Businness</a>
+                        </li>
+                        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Udemy'de eğitim
+                                verin</a>
+                        </li>
+                        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Uygulamayı edinin</a>
+                        </li>
+                        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Hakkımızda</a></li>
+                        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">İletişim</a></li>
+                    </ul>
+                </div>
+
+                <div class="col-2">
+
+                    <ul class="nav flex-column">
+                        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Kariyer</a></li>
+                        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Blog</a></li>
+                        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Yardım Ve destek</a>
+                        </li>
+                        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">İş ortaklığı</a></li>
+
+                </div>
+
+                <div class="col-2">
+
+                    <ul class="nav flex-column">
+                        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Koşullar</a></li>
+                        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Gizlilik
+                                politikası</a>
+                        </li>
+                        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Site haritası</a></li>
+
+                    </ul>
+                </div>
+                <div class="container p-4">
+                    <div class="row">
+
+                        <div class="col-md-6 footer-column">
+                            <img src="https://www.udemy.com/staticx/udemy/images/v7/logo-udemy.svg" alt="" width="70"
+                                height="80">
+                        </div>
+                        <div class="col-md-6 footer-column">
+                            <div class="text-center p-3">
+                                © 2021 Udemy,Inc.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+</body>
+
+</html>
