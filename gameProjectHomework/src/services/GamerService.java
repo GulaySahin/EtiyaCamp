@@ -19,23 +19,23 @@ public class GamerService implements GamerServiceManager {
 	public void add(Gamer gamer) {
 		
 		if (this.checkGamer2.checkGamer(gamer)) {
-			System.out.println("Kullanýcý eklend i"+gamer.getFirstName());
+			System.out.println(gamer.getFirstName()+" person added. ");
 			gamers.add(gamer);
 		} else {
-			System.out.println("Kullanýcý Yanlis kimlik numarasýndan eklenemedi :"+gamer.getFirstName());
+			System.out.println("Unable to add user information because incorrect :"+gamer.getFirstName());
 		}
 
 	}
 
 	@Override
 	public void update(Gamer gamer) {
-		System.out.println("Kullanýcý güncellendi . : " + gamer.getFirstName());
+		System.out.println("updated contact  : " + gamer.getFirstName());
 
 	}
 
 	@Override
 	public void remove(Gamer gamer) {
-		System.out.println("Kullanýcý silindi . : " + gamer.getFirstName());
+		System.out.println("remove contact  : " + gamer.getFirstName());
 
 	}
 

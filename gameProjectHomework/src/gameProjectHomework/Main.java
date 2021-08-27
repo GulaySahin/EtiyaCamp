@@ -11,18 +11,18 @@ public class Main {
 
 	public static void main(String[] args) {
 		Gamer gamer1 = new Gamer();
-		gamer1.setFirstName("Eren");
-		gamer1.setLastName("Aydin");
-		gamer1.setAge(22);
-		gamer1.setDateOfBirth("1515144");
+		gamer1.setFirstName("Gülay");
+		gamer1.setLastName("Þahin");
+		gamer1.setAge(25);
+		gamer1.setDateOfBirth("31011996");
 		gamer1.setNationalId("12345678910");
 		// hatali tc
-		Gamer gamer2 = new Gamer("Ýbo","Gülay","12345","122345",15);
+		Gamer gamer2 = new Gamer("Azra","Rüzgar","12345","122345",13);
 		
 		Game game1 = new Game();
 		game1.setGameName("PUBG");
-		game1.setGamePrice(20);
-		game1.setGameType("FPS");
+		game1.setGamePrice(200);
+		game1.setGameType("Strategy");
 		
 		
 		GamerService gamerService = new GamerService(new GamerCheckService());
@@ -32,7 +32,7 @@ public class Main {
 		
 		Offer offer1 = new Offer();
 		offer1.setOfferId(1);
-		offer1.setOfferName("Yil basi kampanyasi");
+		offer1.setOfferName("Christmas Campaign");
 		offer1.setDiscountRate(30.0);
 		
 		SellingService selling = new SellingService();
