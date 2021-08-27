@@ -1,4 +1,4 @@
-package customerWorkShop;
+package manager;
 
 public class HouseCredit extends CreditManager {
  

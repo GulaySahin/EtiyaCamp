@@ -1,6 +1,8 @@
-package customerWorkShop;
+package manager;
 
+import customerWorkShop.MernisKpsService;
 import entitites.Customer;
+import interfaces.UserIdentityValidatorService;
 
 public class MernisKpsServiceAdaptor implements UserIdentityValidatorService {
 

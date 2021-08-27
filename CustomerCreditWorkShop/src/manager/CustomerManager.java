@@ -1,6 +1,8 @@
-package customerWorkShop;
+package manager;
 
 import entitites.Customer;
+import interfaces.CustomerService;
+import interfaces.UserIdentityValidatorService;
 
 public class CustomerManager implements CustomerService {
      UserIdentityValidatorService userIdentityValidatorService;

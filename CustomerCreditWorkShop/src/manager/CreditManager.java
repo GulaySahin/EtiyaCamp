@@ -1,4 +1,6 @@
-package customerWorkShop;
+package manager;
+
+import interfaces.BaseCreditService;
 
 public class CreditManager implements BaseCreditService {
 

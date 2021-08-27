@@ -1,4 +1,4 @@
-package customerWorkShop;
+package interfaces;
 
 import entitites.Customer;
 

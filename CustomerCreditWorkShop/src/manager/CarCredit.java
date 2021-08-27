@@ -1,4 +1,4 @@
-package customerWorkShop;
+package manager;
 
 public class CarCredit extends CreditManager {
 	public double calculate(double price) {

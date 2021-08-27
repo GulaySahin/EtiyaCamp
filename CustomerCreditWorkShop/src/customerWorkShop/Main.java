@@ -1,6 +1,11 @@
 package customerWorkShop;
 
 import entitites.Customer;
+import manager.CarCredit;
+import manager.CreditManager;
+import manager.CustomerManager;
+import manager.HouseCredit;
+import manager.MernisKpsServiceAdaptor;
 
 public class Main {
 
