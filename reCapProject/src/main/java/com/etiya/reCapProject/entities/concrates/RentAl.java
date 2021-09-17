@@ -10,6 +10,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+import com.etiya.reCapProject.entities.abstracts.Customer;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import lombok.AllArgsConstructor;
@@ -45,6 +46,4 @@ public class RentAl {
 	private Car car;
 	
 	
-	
-
 }

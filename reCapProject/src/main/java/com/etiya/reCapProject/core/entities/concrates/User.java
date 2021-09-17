@@ -1,26 +1,15 @@
 package com.etiya.reCapProject.core.entities.concrates;
 
 import javax.persistence.Column;
-import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToOne;
-import javax.persistence.Table;
-
-import com.etiya.reCapProject.entities.concrates.Customer;
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-
-import lombok.AllArgsConstructor;
+import javax.persistence.MappedSuperclass;
 import lombok.Data;
-import lombok.NoArgsConstructor;
+
+
 @Data
-@AllArgsConstructor
-@NoArgsConstructor
-@Entity
-@Table(name="users")
-@JsonIgnoreProperties({ "hibernateLazyInitializer", "handler" ,"customers"})
+@MappedSuperclass
 public class User {
 
 	@Id
@@ -41,9 +30,8 @@ public class User {
 	@Column(name="password")
 	private String password;
 	
-	@JsonIgnore
-	@OneToOne(mappedBy = "users")
-	private Customer customer;
+	
+	
 	
 	
 	

@@ -4,16 +4,19 @@ import java.util.List;
 
 import com.etiya.reCapProject.core.utilities.results.DataResult;
 import com.etiya.reCapProject.core.utilities.results.Result;
-import com.etiya.reCapProject.entities.concrates.Customer;
+import com.etiya.reCapProject.entities.abstracts.Customer;
+import com.etiya.reCapProject.entities.request.AddCustomerRequest;
+import com.etiya.reCapProject.entities.request.DeleteCustomerRequest;
+import com.etiya.reCapProject.entities.request.UpdateCustomerRequest;
 
 public interface CustomerService {
 
 	DataResult<List<Customer>>getAll();
 	
-	Result add(Customer customer);
+	Result add(AddCustomerRequest addCustomerRequest);
 	
-	Result update(Customer customer);
+	Result update(UpdateCustomerRequest updateCustomerRequest);
 	
-	Result delete(Customer customer);
+	Result delete(DeleteCustomerRequest deleteCustomerRequest);
 	
 }

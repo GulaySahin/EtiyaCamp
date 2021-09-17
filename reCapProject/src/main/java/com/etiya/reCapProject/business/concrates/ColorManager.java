@@ -6,12 +6,16 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.etiya.reCapProject.business.abstracts.ColorService;
+import com.etiya.reCapProject.business.constants.Messages;
 import com.etiya.reCapProject.core.utilities.results.DataResult;
 import com.etiya.reCapProject.core.utilities.results.Result;
 import com.etiya.reCapProject.core.utilities.results.SuccessDataResult;
 import com.etiya.reCapProject.core.utilities.results.SuccessResult;
 import com.etiya.reCapProject.dataAccess.abstracts.ColorDao;
 import com.etiya.reCapProject.entities.concrates.Color;
+import com.etiya.reCapProject.entities.request.AddColorRequest;
+import com.etiya.reCapProject.entities.request.DeleteColorRequest;
+import com.etiya.reCapProject.entities.request.UpdateColorRequest;
 @Service
 public class ColorManager implements ColorService{
 	
@@ -26,30 +30,36 @@ public class ColorManager implements ColorService{
 	@Override
 	public DataResult<List<Color>> getBycolorId(int colorId) {
 		List<Color> colors=this.colorDao.getBycolorId(colorId);
-		return new SuccessDataResult<>(colors," colorId'ye göre listelendi");
+		return new SuccessDataResult<>(colors,Messages.List);
 	}
 
 	@Override
 	public DataResult<List<Color>> getAll() {
 		List<Color> colors=this.colorDao.findAll();
-		return new SuccessDataResult<>(colors," Tüm renkler listelendi");
+		return new SuccessDataResult<>(colors,Messages.List);
 	}
 	@Override
-	public Result add(Color color) {
+	public Result add(AddColorRequest addColorRequest) {
+		Color color=new Color();
+		color.setColorName(addColorRequest.getColorName());
 		this.colorDao.save(color);
-		return new SuccessResult(color.getColorName()+" rengi eklendi");
+		return new SuccessResult(Messages.Add);
 	}
 
 	@Override
-	public Result update(Color color) {
+	public Result update(UpdateColorRequest updateColorRequest) {
+			Color color=new Color();
+			color.setColorName(updateColorRequest.getColorName());
 		this.colorDao.save(color);
-		return new SuccessResult("güncellendi");
+		return new SuccessResult(Messages.Update);
 	}
 
 	@Override
-	public Result delete(Color color) {
+	public Result delete(DeleteColorRequest deleteColorRequest) {
+		Color color=new Color();
+		color.setColorName(deleteColorRequest.getColorName());
 		this.colorDao.delete(color);
-		return new SuccessResult("silindi");
+		return new SuccessResult(Messages.Delete);
 	}
 
 	

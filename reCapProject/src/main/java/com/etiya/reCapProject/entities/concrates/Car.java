@@ -53,7 +53,7 @@ public class Car {
 	
 	@JsonIgnore
 	@OneToMany(mappedBy = "car")
-	private List<RentAl>rentals;
+	private List<RentAl>rental;
 	
 	
 	
