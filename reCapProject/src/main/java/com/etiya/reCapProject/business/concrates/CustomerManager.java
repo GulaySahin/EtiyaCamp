@@ -15,7 +15,6 @@ import com.etiya.reCapProject.dataAccess.abstracts.CustomerDao;
 import com.etiya.reCapProject.entities.abstracts.Customer;
 import com.etiya.reCapProject.entities.concrates.ApplicationUser;
 import com.etiya.reCapProject.entities.request.AddCustomerRequest;
-import com.etiya.reCapProject.entities.request.DeleteCustomerRequest;
 import com.etiya.reCapProject.entities.request.UpdateCustomerRequest;
 
 @Service
@@ -62,15 +61,9 @@ public class CustomerManager implements CustomerService {
 	}
 
 	@Override
-	public Result delete(DeleteCustomerRequest deleteCustomerRequest) {
-		Customer customer = new Customer();
-		customer.setCompanyName(deleteCustomerRequest.getCompanyName());
-		ApplicationUser applicationUser = new ApplicationUser();
-		applicationUser.setId(deleteCustomerRequest.getId());
-
-		customer.setApplicationUser(applicationUser);
-
-		this.customerDao.delete(customer);
+	public Result delete(int customerId) {
+		
+		this.customerDao.deleteById(customerId);
 		return new SuccessResult(Messages.Delete);
 	}
 

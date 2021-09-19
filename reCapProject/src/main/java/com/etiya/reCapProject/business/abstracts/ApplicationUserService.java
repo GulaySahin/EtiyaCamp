@@ -6,7 +6,6 @@ import com.etiya.reCapProject.core.utilities.results.DataResult;
 import com.etiya.reCapProject.core.utilities.results.Result;
 import com.etiya.reCapProject.entities.concrates.ApplicationUser;
 import com.etiya.reCapProject.entities.request.AddApplicationUserRequest;
-import com.etiya.reCapProject.entities.request.DeleteApplicationUserRequest;
 import com.etiya.reCapProject.entities.request.UpdateApplicationUserRequest;
 
 public interface ApplicationUserService {
@@ -17,6 +16,6 @@ public interface ApplicationUserService {
 	
 	Result update(UpdateApplicationUserRequest updateApplicationUserRequest);
 	
-	Result delete(DeleteApplicationUserRequest deleteApplicationUserRequest);
+	Result delete(int id);
 
 }

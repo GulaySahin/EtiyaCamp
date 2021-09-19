@@ -14,7 +14,6 @@ import com.etiya.reCapProject.core.utilities.results.SuccessResult;
 import com.etiya.reCapProject.dataAccess.abstracts.ApplicationUserDao;
 import com.etiya.reCapProject.entities.concrates.ApplicationUser;
 import com.etiya.reCapProject.entities.request.AddApplicationUserRequest;
-import com.etiya.reCapProject.entities.request.DeleteApplicationUserRequest;
 import com.etiya.reCapProject.entities.request.UpdateApplicationUserRequest;
 
 @Service
@@ -56,15 +55,8 @@ private ApplicationUserDao userDao;
 	}
 
 	@Override
-	public Result delete(DeleteApplicationUserRequest deleteApplicationUserRequest) {
-		ApplicationUser applicationUser=new ApplicationUser();
-		
-		applicationUser.setFirstName(deleteApplicationUserRequest.getFirstName());
-		applicationUser.setLastName(deleteApplicationUserRequest.getLastName());
-		applicationUser.setEMail(deleteApplicationUserRequest.getEMail());
-		applicationUser.setPassword(deleteApplicationUserRequest.getPassword());
-		applicationUser.setFirstName(deleteApplicationUserRequest.getFirstName());
-		this.userDao.delete(applicationUser);
+	public Result delete(int id) {
+	this.userDao.getById(id);
 		return new SuccessResult(Messages.Delete);
 	}
 

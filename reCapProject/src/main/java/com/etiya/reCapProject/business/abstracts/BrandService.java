@@ -6,7 +6,6 @@ import com.etiya.reCapProject.core.utilities.results.DataResult;
 import com.etiya.reCapProject.core.utilities.results.Result;
 import com.etiya.reCapProject.entities.concrates.Brand;
 import com.etiya.reCapProject.entities.request.AddBrandRequest;
-import com.etiya.reCapProject.entities.request.DeleteBrandRequest;
 import com.etiya.reCapProject.entities.request.UpdateBrandRequest;
 
 public interface BrandService {
@@ -20,6 +19,6 @@ public interface BrandService {
 
 	Result update(UpdateBrandRequest updateBrandRequest);
 
-	Result delete(DeleteBrandRequest deleteBrandRequest);
+	Result delete(int brandId);
 
 }

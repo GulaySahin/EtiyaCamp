@@ -18,8 +18,8 @@ import com.etiya.reCapProject.core.utilities.results.DataResult;
 import com.etiya.reCapProject.core.utilities.results.Result;
 import com.etiya.reCapProject.entities.concrates.Car;
 import com.etiya.reCapProject.entities.dtos.CarDetailDto;
+import com.etiya.reCapProject.entities.dtos.CarWithCarImageDetailDto;
 import com.etiya.reCapProject.entities.request.AddCarRequest;
-import com.etiya.reCapProject.entities.request.DeleteCarRequest;
 import com.etiya.reCapProject.entities.request.UpdateCarRequest;
 
 @RestController
@@ -34,8 +34,8 @@ private CarService carService;
 		this.carService = carService;
 	}
 	@GetMapping("/getcarıd")
-    public DataResult<List<Car>> getById(int id) {
-        return this.carService.getById(id);
+    public DataResult<Car>getById(int carId) {
+        return this.carService.getById(carId);
 
     }
 
@@ -63,10 +63,20 @@ private CarService carService;
     }
 
     @DeleteMapping("/deletecar")
-    public Result delete(@RequestBody @Valid   DeleteCarRequest deleteCarRequest) {
-        return this.carService.delete(deleteCarRequest);
+    public Result delete(int carId) {
+        return this.carService.delete(carId);
     }
-
-	
-	
+    
+    @GetMapping("/getbybrand")
+    public DataResult<List<Car>> getByBrand_brandId(int brandId)  {
+    	return this.carService.getByBrand_brandId(brandId);
+    }
+   @GetMapping("/getbycolor")
+  public DataResult<List<Car>> getByColor_colorId(int colorId) {
+	   return this.carService.getByColor_colorId(colorId);
+   }
+	@GetMapping("/getcarwithcarimagedetaildto")
+   public DataResult<List<CarWithCarImageDetailDto>> getCarWithCarImageDetails(int carId) {
+	return this.getCarWithCarImageDetails(carId);
+}
 }

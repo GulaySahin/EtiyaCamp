@@ -16,7 +16,6 @@ import com.etiya.reCapProject.entities.abstracts.Customer;
 import com.etiya.reCapProject.entities.concrates.Car;
 import com.etiya.reCapProject.entities.concrates.RentAl;
 import com.etiya.reCapProject.entities.request.AddRentalRequest;
-import com.etiya.reCapProject.entities.request.DeleteRentalRequest;
 import com.etiya.reCapProject.entities.request.UpdateRentalRequest;
 
 @Service
@@ -90,23 +89,10 @@ public class RentAlManager implements RentAlService  {
 	}
 
 	@Override
-	public Result delete(DeleteRentalRequest deleteRentalRequest) {
+	public Result delete(int rentalId) {
 		
-		RentAl rental=new RentAl();
-		rental.setRentDate(deleteRentalRequest.getRentDate());
-		rental.setReturnDate(deleteRentalRequest.getReturnDate());
-		
-		
-		Customer customer=new Customer();
-		customer.setCustomerId(deleteRentalRequest.getCustomerId());
-		
-		Car car=new Car();
-		car.setCarId(deleteRentalRequest.getCarId());
-		
-		 rental.setCustomer(customer);
-		 rental.setCar(car);
-		
-		this.rentAlDao.delete(rental);
+	
+		this.rentAlDao.deleteById(rentalId);
 		return new SuccessResult(Messages.Delete);
 	}
     

@@ -11,7 +11,8 @@ package com.etiya.reCapProject.business.constants;
 	        public static final String IdList = "Id listed";
 	        public static final String DetailList = "Detail listed";
 	        public static final String RentError = "Rent Error";
-	      
+	        public static final String ImageError= " You have exceeded your image upload limit";
+	        public static final String DefaultMsg= " Default Images Listed";
 	    }
 
 

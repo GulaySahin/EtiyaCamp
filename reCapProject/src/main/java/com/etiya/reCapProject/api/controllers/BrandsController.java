@@ -18,7 +18,6 @@ import com.etiya.reCapProject.core.utilities.results.DataResult;
 import com.etiya.reCapProject.core.utilities.results.Result;
 import com.etiya.reCapProject.entities.concrates.Brand;
 import com.etiya.reCapProject.entities.request.AddBrandRequest;
-import com.etiya.reCapProject.entities.request.DeleteBrandRequest;
 import com.etiya.reCapProject.entities.request.UpdateBrandRequest;
 
 @RestController
@@ -58,8 +57,8 @@ private BrandService brandService;
     }
 
     @DeleteMapping("/deletebrand")
-    public Result delete(@RequestBody  @Valid   DeleteBrandRequest deleteBrandRequest) {
-        return this.brandService.delete(deleteBrandRequest);
+    public Result delete(int brandId) {
+        return this.brandService.delete(brandId);
 
     }
 }

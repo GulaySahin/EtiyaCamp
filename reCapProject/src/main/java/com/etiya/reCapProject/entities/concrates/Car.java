@@ -56,6 +56,8 @@ public class Car {
 	private List<RentAl>rental;
 	
 	
+	@OneToMany(mappedBy  ="car")
+	private List<CarImage>carImage;
 	
 	
 }

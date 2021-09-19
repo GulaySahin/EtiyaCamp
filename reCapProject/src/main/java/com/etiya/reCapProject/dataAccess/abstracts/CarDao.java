@@ -8,15 +8,34 @@ import org.springframework.stereotype.Repository;
 
 import com.etiya.reCapProject.entities.concrates.Car;
 import com.etiya.reCapProject.entities.dtos.CarDetailDto;
+import com.etiya.reCapProject.entities.dtos.CarWithCarImageDetailDto;
 @Repository
 public interface CarDao extends JpaRepository<Car, Integer> {
 
-	List<Car> getById(int id);   
-	
+
 	@Query("Select new com.etiya.reCapProject.entities.dtos.CarDetailDto"
             + " (c.carName, b.brandName , cl.colorName, c.dailyPrice) " 
             + " From Brand b Inner Join b.cars c"
             + " Inner Join c.color cl")
 	List<CarDetailDto> getCarWithBrandAndColorDetails();
+	
+
+	boolean existsByCarImageIsNullAndCarId(int carId);
+	
+	boolean existsByCarImageIsNull();
+	
+	List<Car> getByBrand_brandId(int brandId);
+
+    List<Car> getByColor_colorId(int colorId);
+    
+    
+    
+    @Query("Select new com.etiya.reCapProject.entities.dtos.CarWithCarImageDetailDto"
+    		+ " (c.carId,b.brandName ,cl.colorName, c.dailyPrice, ci.carImage , c.modelYear)"
+    		+ "From car c Inner Join c.brand b Inner Join c.color cl"
+    		+ "Inner Join c.carImage ci Where c.carId=:carId ")
+    		
+    
+    List<CarWithCarImageDetailDto>getCarWithCarImageDetails(int carId);
 	  
 }
