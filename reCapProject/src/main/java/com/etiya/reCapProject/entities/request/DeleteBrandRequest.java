@@ -11,5 +11,5 @@ import lombok.Setter;
 @Setter
 public class DeleteBrandRequest {
 
-	private String brandName;
+	private int brandId;
 }

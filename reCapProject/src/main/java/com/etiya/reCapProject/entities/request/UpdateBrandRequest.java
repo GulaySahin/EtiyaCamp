@@ -11,6 +11,8 @@ import lombok.Setter;
 @Setter
 public class UpdateBrandRequest {
 	
+	
+	
 	private String brandName;
 
 }

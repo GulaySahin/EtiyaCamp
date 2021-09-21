@@ -16,6 +16,7 @@ import com.etiya.reCapProject.entities.abstracts.Customer;
 import com.etiya.reCapProject.entities.concrates.Car;
 import com.etiya.reCapProject.entities.concrates.RentAl;
 import com.etiya.reCapProject.entities.request.AddRentalRequest;
+import com.etiya.reCapProject.entities.request.DeleteRentalRequest;
 import com.etiya.reCapProject.entities.request.UpdateRentalRequest;
 
 @Service
@@ -32,13 +33,13 @@ public class RentAlManager implements RentAlService  {
 	@Override
 	public DataResult<List<RentAl>> getAll() {
 		List<RentAl>rental=this.rentAlDao.findAll();
-		return new SuccessDataResult<>(rental,Messages.List);
+		return new SuccessDataResult<>(rental,Messages.LIST);
 	}
 
 	@Override
 	public DataResult<RentAl> getById(int carId) {
 		RentAl rental=this.rentAlDao.getById(carId);
-		return new SuccessDataResult<RentAl>(rental,Messages.IdList);
+		return new SuccessDataResult<RentAl>(rental,Messages.IDLIST);
 		
 	}
 
@@ -64,7 +65,7 @@ public class RentAlManager implements RentAlService  {
 	}
 	this.rentAlDao.save(rental);
 	
-	return new SuccessResult(Messages.Add);
+	return new SuccessResult(Messages.ADD);
 		
 	}
 
@@ -85,22 +86,24 @@ public class RentAlManager implements RentAlService  {
 		 rental.setCar(car);
 		
 		this.rentAlDao.save(rental);
-		return new SuccessResult(Messages.Update);
+		return new SuccessResult(Messages.UPDATE);
 	}
 
 	@Override
-	public Result delete(int rentalId) {
+	public Result delete(DeleteRentalRequest deleteRentalRequest) {
+		RentAl rental=new RentAl();
+		rental.setRentalId(deleteRentalRequest.getRentalId());
 		
 	
-		this.rentAlDao.deleteById(rentalId);
-		return new SuccessResult(Messages.Delete);
+		this.rentAlDao.delete(rental);
+		return new SuccessResult(Messages.DELETE);
 	}
     
     public Result checkCarIsSubmit(int carId) {
     	for (RentAl rental : this.rentAlDao.getByCar_carId(carId)) {
             if(rental.getReturnDate() == null ) {
                 
-                return new ErrorResult(Messages.RentError);
+                return new ErrorResult(Messages.RENTERROR);
             }
         }
         return new SuccessResult();

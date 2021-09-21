@@ -1,9 +1,9 @@
 package com.etiya.reCapProject.entities.request;
 
-import lombok.NoArgsConstructor;
-import lombok.Setter;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 @AllArgsConstructor
 @NoArgsConstructor
@@ -11,5 +11,5 @@ import lombok.Getter;
 @Setter
 public class DeleteColorRequest {
 
-	private String colorName;
+	private int colorId;
 }

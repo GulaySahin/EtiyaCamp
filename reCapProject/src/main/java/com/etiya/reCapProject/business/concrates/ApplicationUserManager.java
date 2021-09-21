@@ -13,7 +13,10 @@ import com.etiya.reCapProject.core.utilities.results.SuccessDataResult;
 import com.etiya.reCapProject.core.utilities.results.SuccessResult;
 import com.etiya.reCapProject.dataAccess.abstracts.ApplicationUserDao;
 import com.etiya.reCapProject.entities.concrates.ApplicationUser;
+import com.etiya.reCapProject.entities.dtos.UserLoginDto;
+import com.etiya.reCapProject.entities.dtos.UserRegisterDto;
 import com.etiya.reCapProject.entities.request.AddApplicationUserRequest;
+import com.etiya.reCapProject.entities.request.DeleteApplicationUserRequest;
 import com.etiya.reCapProject.entities.request.UpdateApplicationUserRequest;
 
 @Service
@@ -28,7 +31,7 @@ private ApplicationUserDao userDao;
 	@Override
 	public DataResult<List<ApplicationUser>> getAll() {
 		List<ApplicationUser>applicationUser=this.userDao.findAll();
-		return new SuccessDataResult<>(applicationUser,Messages.List);
+		return new SuccessDataResult<>(applicationUser,Messages.LIST);
 	}
 
 	@Override
@@ -39,7 +42,7 @@ private ApplicationUserDao userDao;
 		applicationUser.setEMail(addApplicationUserRequest.getEMail());
 		applicationUser.setPassword(addApplicationUserRequest.getPassword());
 		this.userDao.save(applicationUser);
-		return new SuccessResult(Messages.Add);
+		return new SuccessResult(Messages.ADD);
 	}
 
 	@Override
@@ -51,13 +54,40 @@ private ApplicationUserDao userDao;
 		applicationUser.setPassword(updateApplicationUserRequest.getPassword());
 		
 		this.userDao.save(applicationUser);
-		return new SuccessResult(Messages.Update);
+		return new SuccessResult(Messages.UPDATE);
+	}
+
+	
+	@Override
+	public Result delete(DeleteApplicationUserRequest deleteApplicationUserRequest) {
+	ApplicationUser applicationUser=new ApplicationUser();
+	applicationUser.setId(deleteApplicationUserRequest.getId());
+	
+		this.userDao.delete(applicationUser);
+		return new SuccessResult(Messages.DELETE);
 	}
 
 	@Override
-	public Result delete(int id) {
-	this.userDao.getById(id);
-		return new SuccessResult(Messages.Delete);
+	public Result userLogin(UserLoginDto userLoginDto) {
+	ApplicationUser applicationUser=new ApplicationUser();
+	applicationUser.setEMail(userLoginDto.getEMail());
+	applicationUser.setPassword(userLoginDto.getPassword());
+			
+		this.userDao.save(applicationUser);
+
+		return new SuccessResult(Messages.USERLOGIN);
+	}
+
+	@Override
+	public Result userRegister(UserRegisterDto userRegisterDto) {
+		ApplicationUser applicationUser=new ApplicationUser();
+		applicationUser.setFirstName(userRegisterDto.getFirstName());
+		applicationUser.setLastName(userRegisterDto.getLastName());
+		applicationUser.setEMail(userRegisterDto.getEMail());
+		applicationUser.setPassword(userRegisterDto.getPassword());
+		
+		this.userDao.save(applicationUser);
+		return new SuccessResult(Messages.ADD);
 	}
 
 }

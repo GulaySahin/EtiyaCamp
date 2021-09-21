@@ -13,4 +13,6 @@ public interface CarImageDao extends JpaRepository<CarImage, Integer>{
 	int countByCar_carId(int carId);
 	
 	List<CarImage>getByCar_carId(int carId);
+	
+	boolean existsByCar_CarId(int carId);
 }

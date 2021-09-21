@@ -15,6 +15,7 @@ import com.etiya.reCapProject.dataAccess.abstracts.CustomerDao;
 import com.etiya.reCapProject.entities.abstracts.Customer;
 import com.etiya.reCapProject.entities.concrates.ApplicationUser;
 import com.etiya.reCapProject.entities.request.AddCustomerRequest;
+import com.etiya.reCapProject.entities.request.DeleteCustomerRequest;
 import com.etiya.reCapProject.entities.request.UpdateCustomerRequest;
 
 @Service
@@ -31,7 +32,7 @@ public class CustomerManager implements CustomerService {
 	@Override
 	public DataResult<List<Customer>> getAll() {
 		List<Customer> customers = this.customerDao.findAll();
-		return new SuccessDataResult<List<Customer>>(customers, Messages.List);
+		return new SuccessDataResult<List<Customer>>(customers, Messages.LIST);
 	}
 
 	@Override
@@ -44,7 +45,7 @@ public class CustomerManager implements CustomerService {
 
 		customer.setApplicationUser(applicationUser);
 		this.customerDao.save(customer);
-		return new SuccessResult(Messages.Add);
+		return new SuccessResult(Messages.ADD);
 	}
 
 	@Override
@@ -57,14 +58,16 @@ public class CustomerManager implements CustomerService {
 		customer.setApplicationUser(applicationUser);
 
 		this.customerDao.save(customer);
-		return new SuccessResult(Messages.Update);
+		return new SuccessResult(Messages.UPDATE);
 	}
 
 	@Override
-	public Result delete(int customerId) {
+	public Result delete(DeleteCustomerRequest deleteCustomerRequest) {
+		Customer customer=new Customer();
+		customer.setCustomerId(deleteCustomerRequest.getCustomerId());
 		
-		this.customerDao.deleteById(customerId);
-		return new SuccessResult(Messages.Delete);
+		this.customerDao.delete(customer);
+		return new SuccessResult(Messages.DELETE);
 	}
 
 }

@@ -23,15 +23,16 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-@Table(name="carImages")
+@Table(name="car_images")
 @JsonIgnoreProperties({ "hibernateLazyInitializer", "handler","car"})
 public class CarImage {
 	
 	
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	@Column(name="ıd")
-	String id;
+	
+	@Column(name="id")
+	private int id;
 
 	@Column(name="image_path")
 	private String imagePath;

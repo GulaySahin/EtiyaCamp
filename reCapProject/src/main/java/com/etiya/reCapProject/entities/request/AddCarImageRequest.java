@@ -1,9 +1,6 @@
 package com.etiya.reCapProject.entities.request;
 
 
-
-import java.util.Date;
-
 import javax.validation.constraints.NotNull;
 
 import lombok.AllArgsConstructor;
@@ -17,12 +14,6 @@ import lombok.Setter;
 @Setter
 public class AddCarImageRequest {
 
-	@NotNull
-	private String imagePath;
-	
-   
-    private Date date;
-   
-    @NotNull
-    private int carId;
+	@NotNull(message="boş geçilemez")
+	private int carId;
 }

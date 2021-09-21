@@ -8,8 +8,8 @@ import com.etiya.reCapProject.core.utilities.results.DataResult;
 import com.etiya.reCapProject.core.utilities.results.Result;
 import com.etiya.reCapProject.entities.concrates.Car;
 import com.etiya.reCapProject.entities.dtos.CarDetailDto;
-import com.etiya.reCapProject.entities.dtos.CarWithCarImageDetailDto;
 import com.etiya.reCapProject.entities.request.AddCarRequest;
+import com.etiya.reCapProject.entities.request.DeleteCarRequest;
 import com.etiya.reCapProject.entities.request.UpdateCarRequest;
 
 public interface CarService {
@@ -22,7 +22,7 @@ public interface CarService {
 
 	Result update(UpdateCarRequest updateCarRequest);
 
-	Result delete(int carId);
+	Result delete(DeleteCarRequest deleteCarRequest);
 	
 	@Query("Select new com.etiya.reCapProject.entities.dtos.CarDetailDto"
             + " (c.carName, b.brandName , cl.colorName, c.dailyPrice) " 
@@ -35,6 +35,14 @@ public interface CarService {
     DataResult<List<Car>> getByColor_colorId(int colorId);
  
     
-    DataResult<List<CarWithCarImageDetailDto>>getCarWithCarImageDetails(int carId);
-
+	/*
+	 * @Query("Select new com.etiya.reCapProject.entities.dtos.CarWithCarImageDetailDto"
+	 * +
+	 * " (c.carId,b.brandName ,cl.colorName, c.dailyPrice, ci.carImage , c.modelYear)"
+	 * + "From Car c Inner Join c.brand b Inner Join c.color cl" +
+	 * "Inner Join c.carImage ci Where c.carId=:carId ")
+	 * 
+	 * 
+	 * DataResult<List<CarWithCarImageDetailDto>>getCarWithCarImageDetails();
+	 */
 }

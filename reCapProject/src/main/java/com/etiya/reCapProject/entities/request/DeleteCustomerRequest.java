@@ -9,9 +9,8 @@ import lombok.Setter;
 @NoArgsConstructor
 @Getter
 @Setter
-public class DeleteCustomerRequest {
-	
-	private int id;
 
-	private String companyName;
+public class DeleteCustomerRequest {
+
+	private int customerId;
 }

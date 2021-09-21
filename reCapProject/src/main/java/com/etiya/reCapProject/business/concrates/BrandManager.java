@@ -13,6 +13,7 @@ import com.etiya.reCapProject.core.utilities.results.SuccessResult;
 import com.etiya.reCapProject.dataAccess.abstracts.BrandDao;
 import com.etiya.reCapProject.entities.concrates.Brand;
 import com.etiya.reCapProject.entities.request.AddBrandRequest;
+import com.etiya.reCapProject.entities.request.DeleteBrandRequest;
 import com.etiya.reCapProject.entities.request.UpdateBrandRequest;
 
 @Service
@@ -29,14 +30,14 @@ public class BrandManager implements BrandService {
 	@Override
 	public DataResult<List<Brand>> getBybrandId(int brandId) {
 		List<Brand> brands =this.brandDao.getBybrandId(brandId);
-		return new SuccessDataResult<>(brands,Messages.List);
+		return new SuccessDataResult<>(brands,Messages.LIST);
 	}
 
 	@Override
 	public DataResult<List<Brand>> getAll() {
 		
 	List<Brand> brands=this.brandDao.findAll();
-	return new SuccessDataResult<>(brands,Messages.List);
+	return new SuccessDataResult<>(brands,Messages.LIST);
 	}
 
 	@Override
@@ -45,7 +46,7 @@ public class BrandManager implements BrandService {
 	 
 	 brand.setBrandName(addBrandRequest.getBrandName());
 	 this.brandDao.save(brand);
-	 return new SuccessResult(Messages.Add);
+	 return new SuccessResult(Messages.ADD);
 		
 	}
 
@@ -55,14 +56,16 @@ public class BrandManager implements BrandService {
 		 brand.setBrandName(updateBrandRequest.getBrandName());
 		 
 		 this.brandDao.save(brand);
-		 return new SuccessResult(Messages.Update);
+		 return new SuccessResult(Messages.UPDATE);
 	}
 
 	@Override
-	public Result delete(int brandId) {
+	public Result delete(DeleteBrandRequest deleteBrandRequest) {
+		Brand brand=new Brand();
+		brand.setBrandId(deleteBrandRequest.getBrandId());
 		
-		this.brandDao.deleteById(brandId);
-		 return new SuccessResult(Messages.Delete);
+		this.brandDao.delete(brand);
+		 return new SuccessResult(Messages.DELETE);
 	}
 
 	

@@ -35,7 +35,6 @@ public class Brand {
    @Column(name="brand_name")
    private String brandName;
    
-   
    @JsonIgnore
    @OneToMany(mappedBy ="brand")
    private List<Car>cars;

@@ -17,8 +17,8 @@ import com.etiya.reCapProject.entities.concrates.Car;
 import com.etiya.reCapProject.entities.concrates.CarImage;
 import com.etiya.reCapProject.entities.concrates.Color;
 import com.etiya.reCapProject.entities.dtos.CarDetailDto;
-import com.etiya.reCapProject.entities.dtos.CarWithCarImageDetailDto;
 import com.etiya.reCapProject.entities.request.AddCarRequest;
+import com.etiya.reCapProject.entities.request.DeleteCarRequest;
 import com.etiya.reCapProject.entities.request.UpdateCarRequest;
 
 @Service
@@ -34,9 +34,9 @@ public class CarManager implements CarService{
 
 	@Override
 	public DataResult<List<Car>> getAll() {
-		return new SuccessDataResult<List<Car>>(
-				returnCarsWithDefaultImageWhereCarImageIsNull(this.carDao.findAll()).getData()+ Messages.List);
+		List<Car>cars=this.carDao.findAll();
 				
+		return new SuccessDataResult<>(cars,Messages.LIST);
 		
 	}
 
@@ -45,10 +45,10 @@ public class CarManager implements CarService{
 		
 		if (this.returnCarWithDefaultImageIfCarImageIsNull(carId).isSuccess()) {
 			return new SuccessDataResult<Car>(this.returnCarWithDefaultImageIfCarImageIsNull(carId).getData(),
-					Messages.List);
+					Messages.LIST);
 		}
 
-		return new SuccessDataResult<Car>(this.carDao.getById(carId) + Messages.List);
+		return new SuccessDataResult<Car>(this.carDao.getById(carId) + Messages.LIST);
 		
 	}
 
@@ -73,7 +73,7 @@ public class CarManager implements CarService{
 		
 		
 		this.carDao.save(car);
-	  return new SuccessResult(Messages.Add);
+	  return new SuccessResult(Messages.ADD);
 	}
 
 	@Override
@@ -100,17 +100,19 @@ public class CarManager implements CarService{
 	}
 
 	@Override
-	public Result delete(int carId) {
+	public Result delete(DeleteCarRequest deleteCarRequest) {
+		Car car=new Car();
+		car.setCarId(deleteCarRequest.getCarId());
 		
-		this.carDao.deleteById(carId);
-		return new SuccessResult(Messages.Delete);
+		this.carDao.delete(car);
+		return new SuccessResult(Messages.DELETE);
 	}
 
 	@Override
 	public DataResult<List<CarDetailDto>> getCarWithBrandAndColorDetails() {
 		
 		List<CarDetailDto>cars=this.carDao.getCarWithBrandAndColorDetails();
-		return new SuccessDataResult<>(cars,Messages.DetailList);
+		return new SuccessDataResult<>(cars,Messages.DETAILLIST);
 		
 		
 	}
@@ -134,43 +136,25 @@ public class CarManager implements CarService{
 
     }
 
-    private DataResult<List<Car>> returnCarsWithDefaultImageWhereCarImageIsNull(List<Car> cars) {
-
-        CarImage carImage = new CarImage();
-        carImage.setImagePath("carImages/default.jpg");
-
-        List<CarImage> carImages = new ArrayList<CarImage>();
-        carImages.add(carImage);
-
-        if (this.carDao.existsByCarImageIsNull()) {
-            for (Car car : cars) {
-                if (this.carDao.existsByCarImageIsNullAndCarId(car.getCarId())) {
-                    car.setCarImage(carImages);
-                }
-            }
-        }
-
-        return new SuccessDataResult<List<Car>>(cars, "Resimleri olmayan arabalar Default resim ile listelendi");
-
-    }
-
+  
 
 	@Override
 	public DataResult<List<Car>> getByBrand_brandId(int brandId) {
 		List<Car>cars=this.carDao.getByBrand_brandId(brandId);
-		return new SuccessDataResult<>(cars,Messages.List);
+		return new SuccessDataResult<>(cars,Messages.LIST);
 		
 	}
 
 	@Override
 	public DataResult<List<Car>> getByColor_colorId(int colorId) {
 		List<Car>cars=this.carDao.getByColor_colorId(colorId);
-		return new SuccessDataResult<>(cars,Messages.List);
+		return new SuccessDataResult<>(cars,Messages.LIST);
 	}
 
-	@Override
-	public DataResult<List<CarWithCarImageDetailDto>> getCarWithCarImageDetails(int carId) {
-		List<CarWithCarImageDetailDto>cars=this.carDao.getCarWithCarImageDetails(carId);
-		return new SuccessDataResult<>(cars,Messages.List);
-	}
+	/*
+	 * @Override public DataResult<List<CarWithCarImageDetailDto>>
+	 * getCarWithCarImageDetails() {
+	 * List<CarWithCarImageDetailDto>cars=this.carDao.getCarWithCarImageDetails();
+	 * return new SuccessDataResult<>(cars,Messages.List); }
+	 */
 }

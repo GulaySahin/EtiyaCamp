@@ -20,6 +20,7 @@ import com.etiya.reCapProject.entities.concrates.Car;
 import com.etiya.reCapProject.entities.dtos.CarDetailDto;
 import com.etiya.reCapProject.entities.dtos.CarWithCarImageDetailDto;
 import com.etiya.reCapProject.entities.request.AddCarRequest;
+import com.etiya.reCapProject.entities.request.DeleteCarRequest;
 import com.etiya.reCapProject.entities.request.UpdateCarRequest;
 
 @RestController
@@ -51,7 +52,6 @@ private CarService carService;
     }
 
 
-
     @PostMapping("/addcar")
     public Result add(@RequestBody  @Valid   AddCarRequest addCarRequest) {
         return this.carService.add(addCarRequest);
@@ -63,8 +63,8 @@ private CarService carService;
     }
 
     @DeleteMapping("/deletecar")
-    public Result delete(int carId) {
-        return this.carService.delete(carId);
+    public Result delete(@RequestBody @Valid DeleteCarRequest deleteCarRequest) {
+        return this.carService.delete(deleteCarRequest);
     }
     
     @GetMapping("/getbybrand")
