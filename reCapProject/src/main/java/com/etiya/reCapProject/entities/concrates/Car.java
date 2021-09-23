@@ -42,6 +42,9 @@ public class Car {
 	
 	@Column(name="description")
 	private String description;
+	
+	@Column(name="findexNumber")
+	private int findexNumber;
 
 	@ManyToOne
     @JoinColumn(name="brand_id")

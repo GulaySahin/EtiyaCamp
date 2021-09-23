@@ -6,12 +6,12 @@ import java.util.List;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -19,9 +19,9 @@ import com.etiya.reCapProject.business.abstracts.CarImageService;
 import com.etiya.reCapProject.core.utilities.results.DataResult;
 import com.etiya.reCapProject.core.utilities.results.Result;
 import com.etiya.reCapProject.entities.concrates.CarImage;
-import com.etiya.reCapProject.entities.request.AddCarImageRequest;
-import com.etiya.reCapProject.entities.request.DeleteCarImageRequest;
-import com.etiya.reCapProject.entities.request.UpdateCarImageRequest;
+import com.etiya.reCapProject.entities.request.carImageRequest.AddCarImageRequest;
+import com.etiya.reCapProject.entities.request.carImageRequest.DeleteCarImageRequest;
+import com.etiya.reCapProject.entities.request.carImageRequest.UpdateCarImageRequest;
 
 @RestController
 @RequestMapping("/api/images")
@@ -47,13 +47,17 @@ private CarImageService carImageService;
 	}
 
 	@PostMapping("/addcarimages")
-	public ResponseEntity<?> add(@Valid   AddCarImageRequest addCarImageRequest, MultipartFile file) throws IOException {
-		return ResponseEntity.ok(this.carImageService.add(addCarImageRequest, file));
-	}
+    public Result  add(@RequestParam("carId")   int carId, MultipartFile file) throws IOException {
+        AddCarImageRequest addCarImageRequest= new AddCarImageRequest();
+        addCarImageRequest.setCarId(carId);
+        addCarImageRequest.setFile(file);
+        return this.carImageService.add(addCarImageRequest);
+    }
 	
 	@PostMapping("/updatecarimages")
-	public ResponseEntity<?> update(@Valid    UpdateCarImageRequest updateCarImagesRequest, MultipartFile file)throws IOException {
-		return ResponseEntity.ok(this.carImageService.update(updateCarImagesRequest,file));
+	public Result update(@Valid UpdateCarImageRequest carImage, MultipartFile file) throws IOException {
+		carImage.setFile(file);
+		return this.carImageService.update(carImage);
 	}
 	
 	

@@ -17,6 +17,13 @@ import lombok.experimental.UtilityClass;
 	        public static final String USERLOGIN= " User login success";
 	        public static final String USERREGISTERr= " User register success";
 	        public static final String IMAGENULLERROR="ImageNullError";
+	        public static final String REGİSTERERROR= " This email has been used before";
+	        public static final String LOGINERROR= " This email has been used before";
+	        public static final String EmailError="Please enter the correct e-mail address!";
+	        public static final String PASSWORDERROR="Wrong password";
+	        public static final String ERRORSCORE="ErrorScore";
+	        public static final String BRANDERROR="Same Brand available";
+	  
 	    }
 
 

@@ -17,9 +17,9 @@ import com.etiya.reCapProject.entities.concrates.Car;
 import com.etiya.reCapProject.entities.concrates.CarImage;
 import com.etiya.reCapProject.entities.concrates.Color;
 import com.etiya.reCapProject.entities.dtos.CarDetailDto;
-import com.etiya.reCapProject.entities.request.AddCarRequest;
-import com.etiya.reCapProject.entities.request.DeleteCarRequest;
-import com.etiya.reCapProject.entities.request.UpdateCarRequest;
+import com.etiya.reCapProject.entities.request.carRequest.AddCarRequest;
+import com.etiya.reCapProject.entities.request.carRequest.DeleteCarRequest;
+import com.etiya.reCapProject.entities.request.carRequest.UpdateCarRequest;
 
 @Service
 public class CarManager implements CarService{
@@ -67,6 +67,7 @@ public class CarManager implements CarService{
 	    car.setDailyPrice(addCarRequest.getDailyPrice());
 		car.setDescription(addCarRequest.getDescription());
 		
+		
 		car.setBrand(brand);
 		car.setColor(color);
 		
@@ -87,6 +88,7 @@ public class CarManager implements CarService{
 		
 		
 		Car car=new Car();
+		car.setCarId(updateCarRequest.getCarId());
 		car.setCarName(updateCarRequest.getCarName());	
 		car.setModelYear(updateCarRequest.getModelYear());
 	    car.setDailyPrice(updateCarRequest.getDailyPrice());

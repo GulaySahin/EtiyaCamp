@@ -1,6 +1,6 @@
 package com.etiya.reCapProject.entities.concrates;
 
-import java.util.Date;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -9,8 +9,6 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
-
-import com.etiya.reCapProject.entities.abstracts.Customer;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import lombok.AllArgsConstructor;
@@ -32,10 +30,10 @@ public class RentAl {
 	private int rentalId;
 	
 	@Column(name="rent_date")
-	private Date rentDate;
+	private String rentDate;
 	
 	@Column(name="return_date")
-	private Date returnDate;
+	private String returnDate;
 	
 	@ManyToOne
 	@JoinColumn(name="customer_id")

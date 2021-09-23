@@ -5,9 +5,9 @@ import java.util.List;
 import com.etiya.reCapProject.core.utilities.results.DataResult;
 import com.etiya.reCapProject.core.utilities.results.Result;
 import com.etiya.reCapProject.entities.concrates.Brand;
-import com.etiya.reCapProject.entities.request.AddBrandRequest;
-import com.etiya.reCapProject.entities.request.DeleteBrandRequest;
-import com.etiya.reCapProject.entities.request.UpdateBrandRequest;
+import com.etiya.reCapProject.entities.request.brandRequest.AddBrandRequest;
+import com.etiya.reCapProject.entities.request.brandRequest.DeleteBrandRequest;
+import com.etiya.reCapProject.entities.request.brandRequest.UpdateBrandRequest;
 
 public interface BrandService {
 	

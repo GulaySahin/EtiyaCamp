@@ -12,4 +12,8 @@ import com.etiya.reCapProject.entities.concrates.Brand;
 public interface BrandDao extends JpaRepository<Brand, Integer>{
 	
 	List<Brand> getBybrandId(int brandId);   
+	
+	boolean existsBrandByBrandName(String brandName);
+	
+
 }

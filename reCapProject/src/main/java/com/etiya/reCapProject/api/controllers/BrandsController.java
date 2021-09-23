@@ -17,9 +17,9 @@ import com.etiya.reCapProject.business.abstracts.BrandService;
 import com.etiya.reCapProject.core.utilities.results.DataResult;
 import com.etiya.reCapProject.core.utilities.results.Result;
 import com.etiya.reCapProject.entities.concrates.Brand;
-import com.etiya.reCapProject.entities.request.AddBrandRequest;
-import com.etiya.reCapProject.entities.request.DeleteBrandRequest;
-import com.etiya.reCapProject.entities.request.UpdateBrandRequest;
+import com.etiya.reCapProject.entities.request.brandRequest.AddBrandRequest;
+import com.etiya.reCapProject.entities.request.brandRequest.DeleteBrandRequest;
+import com.etiya.reCapProject.entities.request.brandRequest.UpdateBrandRequest;
 
 @RestController
 @RequestMapping("/api/brands")

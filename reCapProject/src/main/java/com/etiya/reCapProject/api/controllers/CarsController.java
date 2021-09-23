@@ -19,9 +19,9 @@ import com.etiya.reCapProject.core.utilities.results.Result;
 import com.etiya.reCapProject.entities.concrates.Car;
 import com.etiya.reCapProject.entities.dtos.CarDetailDto;
 import com.etiya.reCapProject.entities.dtos.CarWithCarImageDetailDto;
-import com.etiya.reCapProject.entities.request.AddCarRequest;
-import com.etiya.reCapProject.entities.request.DeleteCarRequest;
-import com.etiya.reCapProject.entities.request.UpdateCarRequest;
+import com.etiya.reCapProject.entities.request.carRequest.AddCarRequest;
+import com.etiya.reCapProject.entities.request.carRequest.DeleteCarRequest;
+import com.etiya.reCapProject.entities.request.carRequest.UpdateCarRequest;
 
 @RestController
 @RequestMapping("/api/cars")
