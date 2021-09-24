@@ -27,6 +27,5 @@ public interface CarDao extends JpaRepository<Car, Integer> {
 
     List<Car> getByColor_colorId(int colorId);
     
-    
-	  
+  
 }

@@ -153,10 +153,4 @@ public class CarManager implements CarService{
 		return new SuccessDataResult<>(cars,Messages.LIST);
 	}
 
-	/*
-	 * @Override public DataResult<List<CarWithCarImageDetailDto>>
-	 * getCarWithCarImageDetails() {
-	 * List<CarWithCarImageDetailDto>cars=this.carDao.getCarWithCarImageDetails();
-	 * return new SuccessDataResult<>(cars,Messages.List); }
-	 */
 }

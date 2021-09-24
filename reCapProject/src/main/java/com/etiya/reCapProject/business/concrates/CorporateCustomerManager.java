@@ -89,4 +89,5 @@ public class CorporateCustomerManager implements CorporateCustomerService {
 		}
 		return new SuccessResult();
 	}
+	// ^[a-zA-Z0-9]+[_\.]?[a-zA-Z0-9]*@[a-z0-9]+(\.(com|net|org|edu|co)+)?$
 }

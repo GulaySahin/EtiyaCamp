@@ -58,9 +58,13 @@ public class Car {
 	@OneToMany(mappedBy = "car")
 	private List<RentAl>rental;
 	
-	
+	@JsonIgnore
 	@OneToMany(mappedBy  ="car")
 	private List<CarImage>carImage;
+	
+	@ManyToOne
+	@JoinColumn(name="care_id")
+	private HeaterCar heaterCar;
 	
 	
 }

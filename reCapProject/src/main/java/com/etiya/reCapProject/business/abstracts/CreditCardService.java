@@ -17,6 +17,8 @@ import com.etiya.reCapProject.entities.request.creditCardRequest.UpdateCreditCar
   
   DataResult<CreditCard> getById(int id);
   
+
+  
   DataResult<List<CreditCard>> getCreditCardByCustomer_CustomerId(int customerId);
   
   Result add(AddCreditCardRequest addCreditCardRequest);

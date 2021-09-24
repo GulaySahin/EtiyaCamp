@@ -20,5 +20,7 @@ public interface RentAlService {
 	Result updateRentalForCorporateCustomer(UpdateRentalRequest updateRentalRequest);
 	
 	DataResult<List<RentAl>> getAll();
+	
+	
 
 }
