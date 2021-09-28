@@ -14,35 +14,32 @@ import com.etiya.reCapProject.entities.request.carRequest.UpdateCarRequest;
 
 public interface CarService {
 
+
+	@Query("Select new com.etiya.reCapProject.entities.dtos.CarDetailsDto"
+			+ " (c.carName, b.brandName , cl.colorName, c.dailyPrice) " 
+			+ " From Brand b Inner Join b.cars c"
+			+ " Inner Join c.color cl")
+	DataResult<List<CarDetailDto>> getCarWithDetails();
+	
+
 	DataResult<List<Car>> getAll();
 
-	DataResult<Car>getById(int carId);
+	DataResult<Car> getById(int carId);
+	
+	DataResult<List<Car>> getByCarCity(String city);
+	
+	DataResult<List<Car>> IsCarCareIsTrue();
+	
+	DataResult<List<Car>> IsCarCareIsFalse();
+	
+
+	DataResult<List<Car>> getByBrand_brandId(int brandId);
+	
+	DataResult<List<Car>> getByColor_colorId(int colorId);
 
 	Result add(AddCarRequest addCarRequest);
-
+																		
 	Result update(UpdateCarRequest updateCarRequest);
 
 	Result delete(DeleteCarRequest deleteCarRequest);
-	
-	@Query("Select new com.etiya.reCapProject.entities.dtos.CarDetailDto"
-            + " (c.carName, b.brandName , cl.colorName, c.dailyPrice) " 
-            + " From Brand b Inner Join b.cars c"
-            + " Inner Join c.color cl")
-	DataResult<List<CarDetailDto>>getCarWithBrandAndColorDetails();
-	
-	DataResult<List<Car>> getByBrand_brandId(int brandId);
-
-    DataResult<List<Car>> getByColor_colorId(int colorId);
- 
-    
-	/*
-	 * @Query("Select new com.etiya.reCapProject.entities.dtos.CarWithCarImageDetailDto"
-	 * +
-	 * " (c.carId,b.brandName ,cl.colorName, c.dailyPrice, ci.carImage , c.modelYear)"
-	 * + "From Car c Inner Join c.brand b Inner Join c.color cl" +
-	 * "Inner Join c.carImage ci Where c.carId=:carId ")
-	 * 
-	 * 
-	 * DataResult<List<CarWithCarImageDetailDto>>getCarWithCarImageDetails();
-	 */
 }

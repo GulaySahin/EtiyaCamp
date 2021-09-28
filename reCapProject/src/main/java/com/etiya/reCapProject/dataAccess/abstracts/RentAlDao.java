@@ -6,7 +6,8 @@ import com.etiya.reCapProject.entities.concrates.RentAl;
 
 public interface RentAlDao extends JpaRepository<RentAl, Integer>{
 
-	List<RentAl>getByCar_carId(int carId);
 	
+    List<RentAl> getByCar_CarId(int carId);
 	
+	RentAl getByRentAlId(int id);
 }

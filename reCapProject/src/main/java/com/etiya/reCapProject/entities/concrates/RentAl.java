@@ -1,7 +1,8 @@
 package com.etiya.reCapProject.entities.concrates;
 
 
-import java.util.List;
+
+import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -10,7 +11,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -29,28 +30,39 @@ import lombok.NoArgsConstructor;
 public class RentAl {
 	
 	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name="rental_id")
-	private int rentalId;
+	private int rentAlId;
 	
 	@Column(name="rent_date")
-	private String rentDate;
+	private Date rentDate;
 	
 	@Column(name="return_date")
-	private String returnDate;
+	private Date returnDate;
+	
+	@Column(name="take_city")
+	private String takeCity;
+	
+	@Column(name="start_kilometer")
+	private int startKilometer;
+	
+	@Column(name="return_city")
+	private String returnCity;
 	
 	@ManyToOne
 	@JoinColumn(name="customer_id")
-	private Customer customer;
+	private Customer customers;
 	
 	@ManyToOne
 	@JoinColumn(name="car_id")
 	private Car car;
 	
-	@ManyToOne
-	@JoinColumn(name="id")
-	private HeaterCar heaterCar;
+	@JsonIgnore
+	@OneToOne
+	@JoinColumn(name="invoice_id")
+	private Invoice invoice;
+	
 	
 	
 }
+

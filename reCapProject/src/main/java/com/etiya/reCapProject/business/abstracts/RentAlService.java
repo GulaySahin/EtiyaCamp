@@ -6,6 +6,7 @@ import com.etiya.reCapProject.core.utilities.results.DataResult;
 import com.etiya.reCapProject.core.utilities.results.Result;
 import com.etiya.reCapProject.entities.concrates.RentAl;
 import com.etiya.reCapProject.entities.request.rentalRequest.AddRentalRequest;
+import com.etiya.reCapProject.entities.request.rentalRequest.DeleteRentalRequest;
 import com.etiya.reCapProject.entities.request.rentalRequest.UpdateRentalRequest;
 
 public interface RentAlService {
@@ -19,8 +20,8 @@ public interface RentAlService {
 	
 	Result updateRentalForCorporateCustomer(UpdateRentalRequest updateRentalRequest);
 	
+	Result delete(DeleteRentalRequest deleteRentalRequest);
+	
 	DataResult<List<RentAl>> getAll();
 	
-	
-
 }

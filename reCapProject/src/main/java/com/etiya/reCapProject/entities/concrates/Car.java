@@ -31,9 +31,11 @@ public class Car {
 	@Column(name="id")
 	private int carId;
 	
+	
 	@Column(name="car_name")
 	private String carName;
 	
+
 	@Column(name="model_year")
 	private int modelYear;
 	
@@ -43,28 +45,40 @@ public class Car {
 	@Column(name="description")
 	private String description;
 	
-	@Column(name="findexNumber")
-	private int findexNumber;
-
+	@Column(name="kilometer")
+	private int kilometer;
+	
+	@Column(name="city")
+	private String city;
+	
+	@Column(name="findex_point")
+	private int findexPoint;
+	
+	@Column(name="iscar_care", columnDefinition = "boolean default true")
+	private boolean isCarCare;
+	
 	@ManyToOne
-    @JoinColumn(name="brand_id")
+	@JoinColumn(name="brand_id")
 	private Brand brand;
 	
+
 	@ManyToOne
 	@JoinColumn(name="color_id")
 	private Color color;
 	
 	@JsonIgnore
 	@OneToMany(mappedBy = "car")
-	private List<RentAl>rental;
+	private List<RentAl> rentAls;
 	
 	@JsonIgnore
-	@OneToMany(mappedBy  ="car")
-	private List<CarImage>carImage;
+	@OneToMany(mappedBy="car")
+	private List<CarImage> carImage;
 	
-	@ManyToOne
-	@JoinColumn(name="care_id")
-	private HeaterCar heaterCar;
+	@JsonIgnore
+	@OneToMany(mappedBy = "car")
+	private List<CarDamage> carDamages;
 	
-	
+	@JsonIgnore
+	@OneToMany(mappedBy = "car")
+	private List<CareCar> careCars;
 }

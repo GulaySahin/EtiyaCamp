@@ -24,7 +24,16 @@ public class AddCarRequest {
 	@NotNull(message = "Boş Geçilemez")
 	private String carName;
 	
+	@NotNull(message = "Boş Geçilemez")
+	private int kilometer;
+
 	
+	@NotNull(message = "Boş Geçilemez")
+	private boolean isCarCare;
+	
+	private String city;
+
+
 	@NotNull(message = "Boş Geçilemez")
 	private int modelYear;
 	
@@ -39,5 +48,7 @@ public class AddCarRequest {
 	@Max(1900)
 	@NotNull
 	private int findexPoint;
+
+	
 
 }

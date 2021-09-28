@@ -70,6 +70,7 @@ public class CarImageManager implements CarImageService{
 		fileoutputstream.close();
 		
 		Car car = this.carDao.getById(addCarImageRequest.getCarId());
+	
 		
 		CarImage carImage = new CarImage();
 		carImage.setImagePath(myFiles.toString());

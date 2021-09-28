@@ -15,20 +15,25 @@ import lombok.Setter;
 @Setter
 public class UpdateCreditCardRequest {
 	
-	private int id;
+	@NotNull(message = "Boş Geçilemez!")
+	private int cardId;
+
+	
 	@NotNull
+	@Size(min=2,max=30)
 	private String cardName;
-	@NotNull
+	
+
+	@NotNull(message = "Boş Geçilemez!")
+	@Size(min=2,max=30)
 	private String cardNumber;
 	
-	@NotNull
-	@Size(min = 1 , max =3)
-	private String cvv;
 	
-	@NotNull
-	private String lastDate;
+	private String expiration;
 	
-	@NotNull
+	@NotNull(message = "Boş Geçilemez!")
+	@Size(min=1,max=3)
+	private String cvc;
+	
 	private int customerId;
-
 }

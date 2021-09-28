@@ -33,11 +33,12 @@ import lombok.AllArgsConstructor; import lombok.Data; import
   @Column(name="card_number")
   private String cardNumber;
   
-  @Column(name="cvv") 
-  private String cvv;
+  @Column(name="expiration")
+	private String expiration;
   
-  @Column(name="last_date")
-  private String lastDate;
+  @Column(name="cvc") 
+  private String cvc;
+
   
   @ManyToOne
   @JoinColumn(name="customer_id") 

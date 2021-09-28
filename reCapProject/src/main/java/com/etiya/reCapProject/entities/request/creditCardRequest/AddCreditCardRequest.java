@@ -1,7 +1,5 @@
 package com.etiya.reCapProject.entities.request.creditCardRequest;
 
-import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Size;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -14,15 +12,14 @@ import lombok.Setter;
 
 public class AddCreditCardRequest {
 
-	@NotNull
-	private String cardName;
-	@NotNull
+private String cardName;
+	
+
 	private String cardNumber;
-	@NotNull
-	@Size(min = 1 , max =3)
-	private String cvv;
-	@NotNull
-	private String lastDate;
-	@NotNull
+	
+	private String expiration;
+	
+	private String cvc;
+	
 	private int customerId;
 }

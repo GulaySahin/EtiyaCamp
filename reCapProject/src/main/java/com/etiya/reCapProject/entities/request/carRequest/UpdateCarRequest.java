@@ -2,7 +2,6 @@ package com.etiya.reCapProject.entities.request.carRequest;
 
 import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
-import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 
 import lombok.AllArgsConstructor;
@@ -16,15 +15,25 @@ import lombok.Setter;
 @Setter
 public class UpdateCarRequest {
 	
-	private int carId;
+@NotNull(message = "Boş Geçilemez!")
 	
+	private int carId;
+
 	@NotNull(message = "Boş Geçilemez!")
-	@NotBlank
+	
 	private int brandId;
 	
+	@NotNull(message = "Boş Geçilemez")
+	private boolean isCarCare;
+	
+	@NotNull(message = "Boş Geçilemez")
+	private String city;
+	
+	@NotNull(message = "Boş Geçilemez")
+	private int kilometer;
+
 	
 	@NotNull(message = "Boş Geçilemez!")
-	@NotBlank
 	private int colorId;
 	
 	@Min(0)

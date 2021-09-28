@@ -1,6 +1,5 @@
-package com.etiya.reCapProject.entities.request.rentalRequest;
+package com.etiya.reCapProject.entities.request.carDamageRequest;
 
-import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 
 import lombok.AllArgsConstructor;
@@ -12,18 +11,14 @@ import lombok.Setter;
 @NoArgsConstructor
 @Getter
 @Setter
-public class DeleteRentalRequest {
-
-
-	@NotBlank
-	@NotNull(message = "Boş Geçilemez!")
-	private int rentAlId;
-
-
-	@NotNull(message = "Boş Geçilemez!")
-	private int customerId;
+public class AddCarDamageRequest {
 	
-	@NotBlank
+	@NotNull(message = "Boş Geçilemez!")
+	private int damageId;
+	
+	private String damageInfo;
+	
 	@NotNull(message = "Boş Geçilemez!")
 	private int carId;
+	
 }

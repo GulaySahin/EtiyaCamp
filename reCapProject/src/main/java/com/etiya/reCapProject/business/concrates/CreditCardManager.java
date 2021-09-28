@@ -39,14 +39,14 @@ public class CreditCardManager implements CreditCardService {
 
 		creditCard.setCardName(addCreditCardRequest.getCardName()); 
 		creditCard.setCardNumber(addCreditCardRequest.getCardNumber());
-		creditCard.setCvv(addCreditCardRequest.getCvv());
-		creditCard.setLastDate(addCreditCardRequest.getLastDate());
+		creditCard.setCvc(addCreditCardRequest.getCvc());
+		creditCard.setExpiration(addCreditCardRequest.getExpiration());
 
 		Customer customer = new Customer();
 		customer.setId(addCreditCardRequest.getCustomerId());
 		
-		var result= BusinessRules.run(checkValidCreditCardNumber(addCreditCardRequest.getCardNumber()),checkCreditCardCvc(addCreditCardRequest.getCvv()),
-				checkCreditCardLastDate(addCreditCardRequest.getLastDate()));  
+		var result= BusinessRules.run(checkValidCreditCardNumber(addCreditCardRequest.getCardNumber()),checkCreditCardCvc(addCreditCardRequest.getCvc()),
+				checkCreditCardLastDate(addCreditCardRequest.getExpiration()));  
 		if (result!=null) {
 			return result;
 		}
@@ -61,11 +61,11 @@ public class CreditCardManager implements CreditCardService {
 		Customer customer = new Customer();
 		customer.setId(updateCreditCardRequest.getCustomerId());
 
-		CreditCard creditCard = this.creditCardDao.getById(updateCreditCardRequest.getId());
+		CreditCard creditCard = this.creditCardDao.getById(updateCreditCardRequest.getCardId());
 		creditCard.setCardName(updateCreditCardRequest.getCardName());
 		creditCard.setCardNumber(updateCreditCardRequest.getCardNumber());
-		creditCard.setCvv(updateCreditCardRequest.getCvv());
-		creditCard.setLastDate(updateCreditCardRequest.getLastDate());
+		creditCard.setCvc(updateCreditCardRequest.getCvc());
+		creditCard.setExpiration(updateCreditCardRequest.getExpiration());
 		
 		
 		creditCard.setCustomer(customer);
@@ -105,7 +105,7 @@ public class CreditCardManager implements CreditCardService {
 	}
 	
    private Result checkValidCreditCardNumber(String cardNumber) {
-		String  regex="^4[0-9]{3} [0-9]{4} [0-9]{4} [0-9]{4}$";
+		String  regex="^[0-9]{4} [0-9]{4} [0-9]{4} [0-9]{4}$";
 		//  ^4[0-9]{12}(?:[0-9]{3})?$
 		Pattern pattern = Pattern.compile(regex);
 		  Matcher matcher = pattern.matcher(cardNumber);
@@ -119,11 +119,11 @@ public class CreditCardManager implements CreditCardService {
 		  }
 		
 		}
-   private Result checkCreditCardCvc(String cvv) {
+   private Result checkCreditCardCvc(String cvc) {
 		String  regex="^[0-9]{3}$";
 		Pattern pattern = Pattern.compile(regex);
 		
-		  Matcher matcher = pattern.matcher(cvv);
+		  Matcher matcher = pattern.matcher(cvc);
 		  if(!matcher.matches())
 		  {
 			  return new ErrorResult(Messages.CARDERROR) ;
@@ -135,11 +135,11 @@ public class CreditCardManager implements CreditCardService {
 		
 		}
   
-   private Result checkCreditCardLastDate(String lastDate) {
+   private Result checkCreditCardLastDate(String expiration) {
 		String  regex="^(0[1-9]|1[0-2])/?([0-9]{2})$";
 		Pattern pattern = Pattern.compile(regex);
 		
-		  Matcher matcher = pattern.matcher(lastDate);
+		  Matcher matcher = pattern.matcher(expiration);
 		  if(!matcher.matches())
 		  {
 			  return new ErrorResult(Messages.CARDERROR) ;
